@@ -16,10 +16,16 @@ var app = new Vue({
 			})
 			.then((result) => {
 				this.films = result.data.results;
-				console.log(this.films);
 				this.query = ''
 			})
 			.catch((error) => alert('error'))
+		},
+
+		star(a){
+			let b = (a / 2);
+			let star = Math.round(b);
+			console.log(star);
+			return star
 		}
 	}
 });

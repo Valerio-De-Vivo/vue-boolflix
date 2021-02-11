@@ -5,6 +5,7 @@
         <title>BoolFlix</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
@@ -27,9 +28,16 @@
 
             <div class="films">
                 <div v-for="(film,index) in films" class="film" >
+
                     <div class="info">
-                        <img :src="https://image.tmdb.org/t/p/w342/" + {{film.poster.path}} alt="">
-                        <h2> {{film.title}} </h2>
+
+                        <img v-if="film.poster_path == null" src="css/img/notfound.png" alt="">
+                        <img v-else :src=" 'https://image.tmdb.org/t/p/w342' + film.poster_path " alt="">
+                        <h2  > {{film.title}} </h2>
+
+                        <div   class="stars">
+                            <i v-for="i in 5" class="fas fa-star"></i>
+                        </div>
                         
                     </div>
                 </div>
