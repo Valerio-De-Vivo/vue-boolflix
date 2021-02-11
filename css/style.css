@@ -6,7 +6,7 @@
 }
 
 .container {
-  background-color: rgb(23, 23, 23);
+  background-color: rgb(14, 14, 14);
   min-height: 100vh;
 }
 
@@ -21,6 +21,7 @@ header {
 
 header img {
   height: 60%;
+  padding-left: 35px;
 }
 
 nav {
@@ -71,6 +72,25 @@ nav p {
   text-align: center;
   color: #fff;
   font-size: 1.2em;
+  position: relative;
+}
+
+.info2 {
+  width: calc(100% - 20px);
+  height: 400px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.639);
+  top: 0;
+  left: 10px;
+  display: none;
+  font-size: 60%;
+  line-height: 1.6;
+  padding: 10px;
+}
+
+.info:hover .info2 {
+  display: block;
+  color: #fff;
 }
 
 .info img {
@@ -84,5 +104,12 @@ nav p {
 }
 
 .stars {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.info2 img {
+  width: 100px;
+  height: 100px;
 }

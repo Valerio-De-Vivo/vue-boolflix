@@ -22,7 +22,7 @@
                 </nav>
                 <div class="search">
                     <input v-model="query" @keyUp.enter="searchFilms" type="text" placeholder="Cerca film">
-                    <button>Cerca</button>
+                    <button @click="searchFilms">Cerca</button>
                 </div>
             </header>
 
@@ -33,10 +33,22 @@
 
                         <img v-if="film.poster_path == null" src="css/img/notfound.png" alt="">
                         <img v-else :src=" 'https://image.tmdb.org/t/p/w342' + film.poster_path " alt="">
-                        <h2  > {{film.title}} </h2>
+                        <h2  > {{film.title}} || {{film.original_name}} </h2>
 
                         <div   class="stars">
-                            <i v-for="i in 5" class="fas fa-star"></i>
+                            <i v-for="i in star(film.vote_average)" class="fas fa-star" style="color: #DC1B27;"></i>
+                            <i v-for="i in 5 - star(film.vote_average)" class="fas fa-star" ></i>
+                        </div>
+                        <p>su {{film.vote_count}} voti </p>
+
+                        <div class="info2">
+                            <p>
+                                {{film.overview}}
+                            </p>
+
+                            <p>
+                                <img :src="'css/img/' + film.original_language + '.png'" :alt="film.original_language">
+                            </p>
                         </div>
                         
                     </div>
