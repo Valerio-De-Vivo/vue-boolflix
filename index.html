@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>BoolFlix</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <header>
+                <img src="css/logo.png" alt="">
+                <nav>
+                    <p>Film</p>
+                    <p>Serie Tv</p>
+                    <p>Nuove Uscite</p>
+                    <p>Account</p>
+                </nav>
+                <div class="search">
+                    <input v-model="query" @keyUp.enter="searchFilms" type="text" placeholder="Cerca film">
+                    <button>Cerca</button>
+                </div>
+            </header>
+
+            <div class="films">
+                <div v-for="(film,index) in films" class="film" >
+                    <div class="info">
+                        <img :src="https://image.tmdb.org/t/p/w342/" + {{film.poster.path}} alt="">
+                        <h2> {{film.title}} </h2>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <script src="js/main.js" charset="utf-8"></script>
+    </body>
+</html>
